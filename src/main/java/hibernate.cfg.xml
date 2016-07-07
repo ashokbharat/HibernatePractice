@@ -1,0 +1,39 @@
+<!DOCTYPE hibernate-configuration PUBLIC 
+  "-//Hibernate/Hibernate Configuration DTD//EN"
+  "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+    <!-- ###################### ### Query Language ### Note: Use classic query parser during migration from hibernate 2.1.6 to 3.1 ###################### -->
+    <!-- Settings for a remote MySQL database. -->
+    <!-- <property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property> -->
+
+    <!-- Settings for a remote PostgreSQL database. -->
+    <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/HibernateSample</property>
+    <property name="hibernate.connection.username">cpfadmin</property>
+    <property name="hibernate.connection.password">cpfadmin</property>
+      
+      <!-- echo out all the sql queries -->
+    <property name = "show_sql">true</property>
+    
+    <property name="format_sql">true</property>
+     
+    <!-- Drop the existing tables and create a new table, it contains one of the create,update,update-drop,validate values -->
+    <property name="hbm2ddl.auto">create</property> 
+    
+    <!-- Mention here all the model classes along with their package name for mapping -->
+    <!-- OneToOne unidirectional and bidirectional mapping
+    <mapping class = "com.unisys.hibernatePractice.FirstHibernateProject.Student_Info"></mapping>
+    <mapping class = "com.unisys.hibernatePractice.FirstHibernateProject.Student_Details"></mapping>
+     -->
+     
+     <!-- ManyToOne and OneToMany mapping-->
+    <mapping class = "com.unisys.hibernatePractice.FirstHibernateProject.Student"></mapping>
+    <mapping class = "com.unisys.hibernatePractice.FirstHibernateProject.StudentAddress"></mapping>
+     <mapping class = "com.unisys.hibernatePractice.FirstHibernateProject.Employee"></mapping>
+     <mapping class = "com.unisys.hibernatePractice.FirstHibernateProject.Certification"></mapping>
+  </session-factory>
+
+</hibernate-configuration>
